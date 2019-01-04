@@ -1,0 +1,33 @@
+
+.left_top{
+    position: absolute;
+    left:0px;
+    top:0px;
+    width:30%;
+}
+
+
+ p#back-to-top{
+            position:fixed;
+            display:none;
+            bottom:100px;
+            right:80px;
+        }
+.pig_size{
+    width: 540px;
+    height: 300px;
+}
+
+
+
+select{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 30px;
+    width: 100px;
+}
+
+input{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

@@ -1,0 +1,24 @@
+{% extends "base.html"%}
+
+{% block main %}
+    <div id="main_index">
+    <div class="container" style="padding-right:0px;padding-left:0px;margin-left:auto;margin-right:auto; padding-right: 30px;
+ padding-left: 30px;padding-bottom: 30px;width: 1500px;">
+        <div class="row"  >
+            <div class="col-sm-6">
+
+                <button class = "btn-primary" type="submit" style="height:250px;width:600px;font-size: 50px ;" onclick="watch_state()">植株及频率状况观察 </button>
+
+                <br><br>
+                <button class = "btn-primary" type="submit" style="height:250px;width:600px;font-size: 50px" onclick="set_frequency()">频率控制声频设定 </button>
+                </div>
+
+            <div class="col-sm-6">
+                <button class = "btn-primary" type="submit" style="height:250px;width:600px;font-size: 50px" onclick="load_message()">人工补充数据记录 </button>
+                <br><br>
+                <button class = "btn-primary" type="submit" style="height:250px;width:600px;font-size: 50px" onclick="analys()">简单数据分析 </button>
+                </div>
+            </div>
+    </div>
+    </div>
+{% endblock %}

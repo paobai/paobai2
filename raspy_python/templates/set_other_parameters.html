@@ -1,0 +1,89 @@
+    <form id = "set_other_parameters" class="form-horizontal" method="get" action='/set/set_other_parameters'>
+        <h2  class="text-center">温湿度等参数设定</h2>
+        <div class="row"  >
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-8 control-label">温度：每°C影响频率百分比（单位%）：</label>
+                  <div class="col-sm-4">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入比例" name="tem_radio" style="width:200px; display:inline;" value="{{ settings['tem_radio'] }}">
+                  </div>
+               </div>
+
+                </div>
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-4 control-label">湿度：每RH%影响频率百分比（单位%）：</label>
+                  <div class="col-sm-8">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入比例" name="hum_radio" style="width:200px; display:inline;" value="{{ settings['hum_radio'] }}">
+                  </div>
+               </div>
+
+                </div>
+        </div>
+        <hr style="border: 1px dashed #000000">
+
+        <div class="row"  >
+            <h3  class="text-center">开关时间设定</h3>
+            <div class = "col-sm-6">
+               <div class="form-group">
+                  <label for="start_time" class="col-sm-9 control-label">每日开启时间：</label>
+                  <div class="col-sm-3">
+                     <input id = "start_time" name = "start_time" type="time" value="{{ settings['start_time'] }}"/>
+                  </div>
+               </div>
+                </div>
+            <div class = "col-sm-6">
+               <div class="form-group">
+                  <label for="end_time" class="col-sm-3 control-label">每日关闭时间：</label>
+                  <div class="col-sm-9">
+                     <input id = "end_time" name = "end_time" type="time" value="{{ settings['end_time'] }}">
+                  </div>
+               </div>
+                </div>
+        </div>
+
+        <hr style="border: 1px dashed #000000">
+
+        <div class="row"  >
+            <h3  class="text-center">声音大小设置</h3>
+            <div class = "col-sm-6">
+               <div class="form-group">
+                  <label for="start_time" class="col-sm-9 control-label">声音大小设置（单位%）：</label>
+                  <div class="col-sm-3">
+                     <input class="form-control" id = "audio_size" name = "audio_size" type="number" value="{{ settings['audio_size'] }}" style="width:100px;height:30px;"/>
+                  </div>
+               </div>
+            </div>
+        </div>
+
+        <hr style="border: 1px dashed #000000">
+
+               <div class="form-group">
+                  <div class="col-sm-offset-8 ">
+                     <button type="submit" class="btn btn-success" style="height:65px;width: 100px">保存</button>
+                  </div>
+               </div>
+
+    </form>
+
+<script type="text/javascript">
+$('#set_other_parameters').on('submit', function(){
+      registPost();
+     event.preventDefault() ;//阻止form表单默认提交
+});
+function registPost () {
+   $.ajax({
+       type: "post",
+       url: "/set/set_other_parameters",
+       data: $('#set_other_parameters').serialize()
+   }).success(function(message,sate,aaa) {
+     console.log(message,sate,aaa);
+       alert(message);
+   }).fail(function(err){
+       alert("还没写后台函数·");
+     console.log(err);
+   })
+}
+</script>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>远程调控观测平台</title>
+
+  <script src="/static/jquery.min.js"></script>
+
+  <script src="/static/bootstrap.min.js"></script>
+  <script src=/static/echarts.min.js></script>
+  <script src="/static/my_jquery.js"></script>
+  <script src=/static/my.js></script>
+  <script src=/static/load.js></script>
+  <script src=/static/set.js></script>
+  <script src=/static/analys.js></script>
+
+  <link rel="stylesheet"  type="text/css" href="/static/my_css.css" >
+  <link rel="shortcut icon" href="/static/favicon.ico">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <style>
+    .fakeimg {
+        height: 300px;
+         background: #aaa;
+    }
+  </style>
+</head>
+<body >
+<div class="jumbotron text-center" style="margin-bottom:0px;">
+    <h1 style="text-align:center; text-shadow: #122b40 2px 2px 2px; z-index:100; ">远程调控观测平台</h1>
+  <img style="width: 30%; position: absolute;left:0px;top:0px;" src="/static/YCfarm.png" >
+
+</div>
+{% block search_line %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/start">远程调控观测平台</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a onclick="watch_state()" href="#">植株及频率状况观察</a></li>
+        <li><a onclick="load_message()" href="#">人工补充数据记录</a></li>
+        <li><a onclick="set_frequency()" href="#">频率控制声频设定</a></li>
+          <li><a onclick="analys()" href="#">简单数据分析</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+
+{% block main %}
+<div class="container" style="padding-right:0px;padding-left:0px;margin-left:auto;margin-right:auto; padding-right: 30px;
+ padding-left: 30px;">
+  <div class="row"  >
+    <div class="col-sm-6">
+      <h2>温度</h2>
+      <h5 id = "wendu_now">现在温度:xx°C</h5>
+      <h5 style="display : inline">曲线根据月/日/小时/每10分钟（默认为小时） &nbsp&nbsp</h5>
+        <select id ="wendu_select">
+          <option value="month">月</option>
+          <option value="day" >日</option>
+          <option value="hour" selected="selected">小时</option>
+          <option value="10minute">10分钟</option>
+        </select>
+      <div id = "wendu_pig" style="width: 540px;height:300px; border: solid;">温度这边插入图像Echarts</div>
+      <h2>湿度</h2>
+      <h5 id = "shidu_now">现在湿度:xx%RH</h5>
+      <div id = "shidu_pig" style="width: 540px;height:300px; border: solid;">湿度这边插入图像Echarts</div>
+      <h2>高度</h2>
+      <h5>现在高度:xx°C</h5>
+      <div class="fakeimg">高度这边插入图像Echarts</div>
+      <h3>链接</h3>
+      <p>描述</p>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">链接 1</a></li>
+        <li><a href="#">链接 2</a></li>
+        <li><a href="#">链接 3</a></li>
+      </ul>
+      <hr class="hidden-sm hidden-md hidden-lg">
+    </div>
+    <div class="col-sm-6">
+      <h2>农场状况</h2>
+      <h5>副标题</h5>
+      <div class="fakeimg " >
+      <img class="pig_size" src="/static/farm.jpg" /></div>
+      <p>一些文本..</p>
+      <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>
+      <br>
+      <h2>标题</h2>
+      <h5>副标题</h5>
+      <div class="fakeimg">图像</div>
+      <p>一些文本..</p>
+      <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block final %}
+<div class="jumbotron text-center" style="margin-bottom:0; border:1px solid #5e5e5e">
+  <p>欢迎来到本观测平台。</p>
+  <p id="back-to-top"><a href="#top">返回顶部</a></p>
+</div>
+
+</body>
+</html>
+{% endblock %}

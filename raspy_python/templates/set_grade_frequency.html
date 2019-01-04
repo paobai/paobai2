@@ -1,0 +1,93 @@
+    <form id = "set_grade_frequency_form" class="form-horizontal" method="get" action='/set/set_grade_frequency_form'>
+        <div class="row"  >
+            <h3  class="text-center">档位频率设定</h3>
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-8 control-label">-5~0°C 档位的频率(单位HZ)：</label>
+                  <div class="col-sm-4">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入频率" name="grade1" style="width:200px; display:inline;" value="{{ settings['grade1'] }}">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-8 control-label">0~5°C 档位的频率(单位HZ)：</label>
+                  <div class="col-sm-4">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入频率" name="grade2" style="width:200px; display:inline;" value="{{ settings['grade2'] }}">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-8 control-label">5~10°C 档位的频率(单位HZ)：</label>
+                  <div class="col-sm-4">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入频率" name="grade3" style="width:200px; display:inline;" value="{{ settings['grade3'] }}">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-8 control-label">10~15°C 档位的频率(单位HZ)：</label>
+                  <div class="col-sm-4">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入频率" name="grade4" style="width:200px; display:inline;" value="{{ settings['grade4'] }}">
+                  </div>
+               </div>
+                </div>
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-4 control-label">15~20°C 档位的频率(单位HZ)：</label>
+                  <div class="col-sm-8">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入频率" name="grade5" style="width:200px; display:inline;" value="{{ settings['grade5'] }}">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-4 control-label">20~25°C 档位的频率(单位HZ)：</label>
+                  <div class="col-sm-8">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入频率" name="grade6" style="width:200px; display:inline;" value="{{ settings['grade6'] }}">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-4 control-label">25~30°C 档位的频率(单位HZ)：</label>
+                  <div class="col-sm-8">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入频率" name="grade7" style="width:200px; display:inline;" value="{{ settings['grade7'] }}">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label for="firstname" class="col-sm-4 control-label">30~35°C 档位的频率(单位HZ)：</label>
+                  <div class="col-sm-8">
+                     <input type="number" class="form-control" id="firstname"
+                        placeholder="请输入频率" name="grade8" style="width:200px; display:inline;" value="{{ settings['grade8'] }}">
+                  </div>
+               </div>
+                </div>
+        </div>
+
+
+        <hr style="border: 1px dashed #000000">
+               <div class="form-group">
+                  <div class="col-sm-offset-8 ">
+                     <button type="submit" class="btn btn-success" style="height:65px;width: 100px">保存</button>
+                  </div>
+               </div>
+    </form>
+
+<script type="text/javascript">
+$('#set_grade_frequency_form').on('submit', function(){
+      registPost();
+     event.preventDefault() ;//阻止form表单默认提交
+});
+function registPost () {
+   $.ajax({
+       type: "post",
+       url: "/set/set_grade_frequency_form",
+       data: $('#set_grade_frequency_form').serialize()
+   }).success(function(message) {
+     console.log(message);
+       alert(message);
+   }).fail(function(err){
+       alert("还没写后台函数·");
+     console.log(err);
+   })
+}
+</script>

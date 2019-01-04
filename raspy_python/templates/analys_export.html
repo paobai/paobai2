@@ -1,0 +1,41 @@
+    <form id = "analys_export" class="form-horizontal" method="get" action='/analys/analys_export'>
+        <div class="row"  >
+            <h3  class="text-center">数据导出</h3>
+            <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="analys_select" class="col-sm-8 control-label">选择查看的记录名：</label>
+                   <div class="col-sm-1">
+                      <select name = "analys_select" id = "analys_select">
+                      {% for group in groups %}
+                        <option value="{{ group.id }}">{{ group.name }}</option>
+                      {% endfor %}
+                        </select>
+                     </div>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="start_time" class="col-sm-8 control-label">统计的开始日期：</label>
+                   <div class="col-sm-4">
+                     <input id = "start_time" name = "start_time" type="date" style="height:30px"/>
+                     <br>
+                     <br>
+                        <button type="submit" class=" btn btn-success" style="height:30px">下载为EXCEL文件</button>
+                   </div>
+
+                </div>
+                </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="end_time" class="col-sm-2 control-label">统计的结束日期：</label>
+                    <div class="col-sm-10">
+                     <input id = "end_time" name = "end_time" type="date">
+
+                    </div>
+
+               </div>
+            </div>
+        </div>
+    </form>
